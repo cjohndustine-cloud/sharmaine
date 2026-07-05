@@ -131,15 +131,30 @@
   });
 
   /* ---------------- typing letter effect ---------------- */
-  const letterText = `My dearest,
+  const letterText = `My Babi,
 
-Eighteen years ago the world became softer and brighter, simply because you arrived in it. Watching you grow into the thoughtful, radiant person you are today has been one of the quiet joys of my life.
+Happiest 18th Birthday, baby ganda ko. 🤍
 
-Today isn't just a birthday — it's the beginning of a whole new chapter, one where your dreams get to take their first real steps into the world. Chase them gently, and boldly, and often.
+I just wanted to do something special for you today because you deserve to feel how loved and appreciated you are.
 
-Wherever this year takes you, I hope it's full of soft mornings, easy laughter, and people who love you exactly as you are.
+Mahal na mahal kita higit pa sa alam mo.
 
-Happy eighteenth birthday. I am, and will always be, so incredibly proud of you.`;
+Thank you for always listening to me. Thank you for always being there for me, through my good days and even the difficult ones. You have become one of my greatest comforts, and I'm so grateful to have you.
+
+Baby, today is your day, and I couldn't be happier or prouder to celebrate this special milestone with you. Happy 6,570 days old, baby. 🤍 I always pray for you. Palagi kang kasama sa mga dasal ko. I pray for your happiness, good health, peace of mind, and that all the dreams you've been working so hard for will come true in God's perfect time.
+
+I'm so proud of everything you've accomplished. I've had the privilege of witnessing your growth, your strength, and the way you continue to become an amazing person despite everything you've been through. Even when life gets difficult and people get in your way, you still choose to keep going and that's one of the many reasons why I admire you so much.
+
+Today isn't just your birthday.
+
+It's a celebration of the beautiful person you've become over these past 18 years. It's the beginning of a new chapter in your life—a chapter filled with more opportunities, more lessons, more dreams to chase, and more memories waiting to be made.
+
+And through it all, I hope you always remember that you don't have to face anything alone. I'll always be here, cheering you on, believing in you, and loving you every step of the way.
+
+Happy 18th Birthday/
+
+I love you always and in all ways. 🤍
+.`;
 
   const letterBody = document.getElementById('letterBody');
   let typed = false;
