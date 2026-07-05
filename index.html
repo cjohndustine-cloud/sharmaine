@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 18th Birthday, My Love</title>
+<link rel="stylesheet" href="css/index.css">
+<script src="index.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.2/confetti.browser.min.js"></script>
+
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<!-- reusable lily svg as a template -->
+<template id="lily-template">
+  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M32 58C32 58 14 46 14 30C14 20 21 13 32 13C43 13 50 20 50 30C50 46 32 58 32 58Z" stroke="currentColor" stroke-width="1.6" fill="rgba(255,255,255,0.6)"/>
+    <path d="M32 13C32 13 26 24 32 40C38 24 32 13 32 13Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+    <path d="M18 8C24 12 27 18 27 24" stroke="#93A87E" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    <path d="M46 8C40 12 37 18 37 24" stroke="#93A87E" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    <circle cx="32" cy="30" r="2.4" fill="#C9A876"/>
+  </svg>
+</template>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero">
+  <div class="hero-lily-left" id="lilyLeft"></div>
+  <div class="hero-lily-right" id="lilyRight"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow eyebrow">Eighteen Years of Grace</div>
+    <h1>Happy 18th Birthday,<br>Babii</h1>
+    <p class="subtitle">Today marks a beautiful new chapter of your life. May every dream you hold bloom into reality.</p>
+    <div class="hero-divider"></div>
+  </div>
+  <div class="scroll-cue"><span class="line"></span>Scroll</div>
+</section>
+
+<!-- ============================================================
+     PHOTO MEMORIES
+============================================================ -->
+<div class="gallery-wrap">
+  <div class="gallery-mask">
+    <div class="gallery-track" id="galleryTrack">
+      <!-- Photos are added automatically by index.js from the "memories" list -->
+    </div>
+  </div>
+</div>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <div class="lightbox-inner" id="lightboxInner"></div>
+</div>
+
+<!-- ============================================================
+     CAKE
+============================================================ -->
+<section class="section-pad cake-section" id="cake-section">
+  <div class="section-head reveal">
+    <div class="eyebrow">Make A Wish</div>
+    <h2>Eighteen Candles of Joy</h2>
+  </div>
+  <div class="cake-stage reveal">
+    <svg class="cake" id="cakeSvg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="160" cy="278" rx="118" ry="16" fill="#E6B8C6" opacity="0.45"/>
+
+      <!-- bottom tier -->
+      <rect x="55" y="200" width="210" height="70" rx="18" fill="#F6DCE2"/>
+      <rect x="55" y="200" width="210" height="70" rx="18" fill="url(#tierShade1)"/>
+      <path d="M55 214 Q75 200 95 214 T135 214 T175 214 T215 214 T265 214 V270 H55 Z" fill="#FBF6F0" opacity="0.6"/>
+
+      <!-- middle tier -->
+      <rect x="80" y="140" width="160" height="64" rx="16" fill="#F0C7D3"/>
+      <rect x="80" y="140" width="160" height="64" rx="16" fill="url(#tierShade2)"/>
+      <path d="M80 152 Q98 140 116 152 T152 152 T188 152 T224 152 T240 152 V204 H80 Z" fill="#FBF6F0" opacity="0.55"/>
+
+      <!-- top tier -->
+      <rect x="106" y="90" width="108" height="54" rx="14" fill="#EAC2CF"/>
+      <path d="M106 100 Q120 90 134 100 T160 100 T186 100 T212 100 V144 H106 Z" fill="#FBF6F0" opacity="0.5"/>
+
+      <!-- lily decorations on cake -->
+      <g id="cakeLilies"></g>
+
+      <!-- candles -->
+      <g id="candles">
+        <g class="candle-group">
+          <rect x="118" y="58" width="7" height="34" rx="3" fill="#CBD9BD"/>
+          <path class="flame f1" d="M121.5 58 C 118 50 118 44 121.5 38 C 125 44 125 50 121.5 58 Z" fill="#F3B65C"/>
+        </g>
+        <g class="candle-group">
+          <rect x="156" y="50" width="7" height="42" rx="3" fill="#E6B8C6"/>
+          <path class="flame f2" d="M159.5 50 C 156 42 156 36 159.5 30 C 163 36 163 42 159.5 50 Z" fill="#F3B65C"/>
+        </g>
+        <g class="candle-group">
+          <rect x="194" y="58" width="7" height="34" rx="3" fill="#C9A876"/>
+          <path class="flame f3" d="M197.5 58 C 194 50 194 44 197.5 38 C 201 44 201 50 197.5 58 Z" fill="#F3B65C"/>
+        </g>
+      </g>
+
+      <!-- number 18 topper -->
+      <text x="160" y="180" text-anchor="middle" font-family="Playfair Display, serif" font-style="italic" font-size="34" fill="#B5748A">18</text>
+
+      <defs>
+        <linearGradient id="tierShade1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffffff" stop-opacity="0.25"/>
+          <stop offset="1" stop-color="#B5748A" stop-opacity="0.12"/>
+        </linearGradient>
+        <linearGradient id="tierShade2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffffff" stop-opacity="0.25"/>
+          <stop offset="1" stop-color="#B5748A" stop-opacity="0.12"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+  <p class="cake-click-hint reveal">✦ click the cake to celebrate ✦</p>
+</section>
+
+<!-- ============================================================
+     MESSAGE / LETTER
+============================================================ -->
+<section class="section-pad letter-section" id="letter">
+  <div class="letter-card reveal">
+    <div class="letter-top">
+      <div class="lily" id="letterLily"></div>
+      <h3 class="letter-title script">A Little Letter For You</h3>
+    </div>
+    <div class="letter-body serif-body" id="letterBody"></div>
+    <div class="letter-sign">— With all my love</div>
+  </div>
+</section>
+
+<footer class="credit">made with love, for your beautiful new chapter</footer>
+
+<!-- ============================================================
+     MUSIC PLAYER
+============================================================ -->
+<div class="music-player">
+  <button id="playPauseBtn" aria-label="Play music">
+    <svg id="playIcon" width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+    <svg id="pauseIcon" width="14" height="14" viewBox="0 0 24 24" fill="white" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+  </button>
+  <span class="m-label">♪ Soft piano, for you</span>
+  <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
+  <audio id="bgAudio" loop preload="none">
+    <!-- Add your own instrumental / piano track path here, e.g.: -->
+    <!-- <source src="your-song.mp3" type="audio/mpeg"> -->
+  </audio>
+</div>
+
+
+</body>
+</html>
